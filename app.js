@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
+const path = require('path');
+const exphbs = require('express-handlebars');
+const bodyparser = require('body-parser');
+const index = require('./routes/index');
 const app = express();
 
 // Passport Config
@@ -60,3 +63,6 @@ app.use('/users', require('./routes/users.js'));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+
+app.use('/routes', index);
