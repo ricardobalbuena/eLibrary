@@ -16,6 +16,4 @@ $ localhost:5000
 
 ```
 
-### MongoDB
 
-Esta configurado para la nube
