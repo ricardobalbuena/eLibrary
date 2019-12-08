@@ -1,0 +1,30 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Bienvenido <%= user.name %></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+<h3><a class="btn btn-secondary" href="/views"><i class="fa fa-plus"></i> Agregar nuevo</a> Lista de Libros</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Link PDF</th>
+            <th>Link Audio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.titulo}}</td>
+            <td>{{this.autor}}</td>
+            <td>{{this.linkpdf}}</td>
+            <td>{{this.linkadudio}}</td>
+            <td>
+                <a href="/views/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/views/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
